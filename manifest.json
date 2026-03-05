@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "HH Auto-Applier Bot",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.hh.ru/*",
+    "https://*.hh.kz/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.hh.ru/search/vacancy*",
+        "https://*.hh.ru/vacancy/*",
+        "https://*.hh.kz/search/vacancy*",
+        "https://*.hh.kz/vacancy/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
